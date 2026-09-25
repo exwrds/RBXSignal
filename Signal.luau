@@ -74,7 +74,7 @@ export type Signal<Args...> = {
 -- Constant Expressions
 const IS_ACTOR_ENVIRONMENT = pcall(task.synchronize)
 
--- Module Tables
+-- Method Tables
 const Connection = {}
 Connection.__index = Connection
 
