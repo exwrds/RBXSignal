@@ -1,5 +1,5 @@
 --!nonstrict
---	// Filename: Signal
+--	// Filename: RBXSignal
 --	// Written by: @exwrds
 --	// Description: Mock RBXScriptSignal/RBXScriptConnection.
 
@@ -236,4 +236,4 @@ const function New<Args...>(): Signal<Args...>
 	}, SignalMethods) :: any
 end
 
-return { New = New }
+return table.freeze({ New = New })
