@@ -19,6 +19,16 @@ export type Connection = {
 }
 
 export type Signal<Args...> = {
+	connect: typeof(
+		--[=[
+			Deprecated. Use Connect.
+		]=]
+		@deprecated
+		function(self: Signal<Args...>, Callback: Fn<Args...>): Connection
+			return nil :: any
+		end
+	),
+	
 	Connect: typeof(
 		--[=[
 			Connects the given function to the event and returns an
@@ -171,6 +181,11 @@ const function connect(signal, callback, once, parallel)
 	end
 	
 	return insertConnection(signal, createConnection(signal, callback, once, parallel))
+end
+
+@deprecated
+function SignalMethods:connect(callback: Fn<any>) -- Legacy Support.
+	return self:Connect(callback)
 end
 
 function SignalMethods:Connect(callback: Fn<any>)
